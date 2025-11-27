@@ -1,5 +1,16 @@
 package com.example.book_my_ticket.repository;
 
-public class UserRepository {
+import com.example.book_my_ticket.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+	boolean existsByEmail(String email);
+
+	void deleteByRole(String string);
+
+	User findByEmail(String email);
+
+	boolean existsByMobile(Long mobile);
 
 }
