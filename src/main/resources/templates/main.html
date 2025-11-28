@@ -10,35 +10,135 @@
 	rel="stylesheet">
 
 <style>
+/* Global */
 body {
-	background: #f5f6fa;
+    background: #0d0d0f;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #e6e6e6;
+}
+
+/* Navbar */
+.navbar {
+    background: #2a22c3;
+	background: linear-gradient(0deg,rgba(42, 34, 195, 1) 0%, rgba(10, 4, 4, 1) 100%);
+    padding: 12px 0;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
 }
 
 .navbar-brand {
-	font-weight: bold;
-	font-size: 1.6rem;
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: #00eaff !important;      /* Cyan Glow */
+    text-shadow: 0 0 8px rgba(0, 238, 255, 0.7);
 }
 
+/* Hero Section */
 .hero {
-	background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-		url('/images/hero-bg.jpg') center/cover no-repeat;
-	padding: 130px 0;
-	color: #fff;
-	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    padding: 140px 0;
+    text-align: center;
+    background: linear-gradient(
+                rgba(0, 0, 0, 0.75),
+                rgb(0, 128, 192)
+              ),
+              url('/images/hero-bg.jpg') center/cover no-repeat;
+
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #ff4dff;
+    text-shadow: 0 0 12px rgba(255, 0, 203, 0.8);
+}
+
+.hero p {
+    color: #b8faff;
+    font-size: 1.3rem;
+}
+
+/* Movie Cards */
+.movie-card {
+    background: #121212;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 18px rgba(0, 238, 255, 0.3);
 }
 
 .movie-card img {
-	height: 260px;
-	object-fit: cover;
-	border-radius: 5px 5px 0 0;
+    height: 260px;
+    width: 100%;
+    object-fit: cover;
 }
 
-footer {
-	background: #111;
-	color: #aaa;
-	padding: 15px 0;
-	margin-top: 60px;
+/* Movie Titles & Buttons */
+.movie-card .card-body {
+    padding: 15px;
+    background: linear-gradient(180deg, #1a1a1d, #0f0f11);
 }
+
+.movie-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgb(128, 255, 255);
+    text-shadow: 0 0 8px rgba(255, 0, 203, 0.7);
+}
+
+.btn-book {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #00eaff, #007bff);
+    border-radius: 5px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 238, 255, 0.4);
+}
+
+.btn-book:hover {
+    background: linear-gradient(90deg, #ff4dff, #b300ff);
+    box-shadow: 0 0 14px rgba(255, 0, 200, 0.5);
+    color: #fff;
+}
+
+.movie-runtime,
+.movie-card .card-body ,
+.movie-card .text-muted {
+    color: #9ef2ff !important; /* neon light cyan */
+    text-shadow: 0 0 6px rgba(0, 238, 255, 0.5);
+    font-weight: 500;
+}
+#movies{
+	background: #3F5EFB;
+	background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(2, 21, 43, 1) 100%);
+}
+
+
+/* Footer */
+footer {
+    background: #106769;
+	background: linear-gradient(0deg, rgba(16, 103, 105, 1) 0%, rgba(45, 253, 229, 1) 100%);
+    padding: 20px 0;
+    text-align: center;
+    color: #b30000;
+    border-top: 1px solid #222;
+    box-shadow: 0 -5px 20px rgba(255, 0, 200, 0.15);
+}
+
+body{
+	background: #3F5EFB;
+	background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(26, 50, 126, 1) 0%, rgba(23, 47, 117, 1) 0%, rgba(2, 21, 43, 1) 75%);
+}
+
 </style>
 </head>
 
@@ -113,18 +213,18 @@ footer {
 
 	<!-- MOVIES SECTION -->
 	<section class="container py-5" id="movies">
-		<h2 class="text-center fw-bold mb-4">Now Showing</h2>
+		<h2 class="text-center fw-bold mb-4">Now Showing in Telugu</h2>
 
 		<div class="row g-4">
 
 			<!-- MOVIE 1 -->
 			<div class="col-md-3 col-sm-6">
 				<div class="card movie-card shadow border-0">
-					<img src="https://via.placeholder.com/300x260?text=Movie+1"
+					<img src="https://m.media-amazon.com/images/M/MV5BZmU4MzExZGQtYzUzZC00NGE2LTg5NTgtZWI3MWM4YzgyNWUxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
 						class="card-img-top">
 					<div class="card-body">
-						<h5 class="card-title">Avengers: Endgame</h5>
-						<p class="text-muted small">Action • 3h 1m</p>
+						<h5 class="card-title">HI NANNA ♥</h5>
+						<p class="text-muted small">Drama • 3h 1m</p>
 						<a href="#" class="btn btn-primary w-100">Book Now</a>
 					</div>
 				</div>
@@ -133,11 +233,11 @@ footer {
 			<!-- MOVIE 2 -->
 			<div class="col-md-3 col-sm-6">
 				<div class="card movie-card shadow border-0">
-					<img src="https://via.placeholder.com/300x260?text=Movie+2"
+					<img src="https://m.media-amazon.com/images/S/pv-target-images/5aea6826c1dc816d05950e102710c8956e80988f038316594e883b6f5c1272ad._SX1080_FMjpg_.jpg"
 						class="card-img-top">
 					<div class="card-body">
-						<h5 class="card-title">Interstellar</h5>
-						<p class="text-muted small">Sci-Fi • 2h 49m</p>
+						<h5 class="card-title">Chatrapathi</h5>
+						<p class="text-muted small">Action • 2h 49m</p>
 						<a href="#" class="btn btn-primary w-100">Book Now</a>
 					</div>
 				</div>
@@ -146,11 +246,11 @@ footer {
 			<!-- MOVIE 3 -->
 			<div class="col-md-3 col-sm-6">
 				<div class="card movie-card shadow border-0">
-					<img src="https://via.placeholder.com/300x260?text=Movie+3"
+					<img src="https://static.toiimg.com/photo/61290187.cms"
 						class="card-img-top">
 					<div class="card-body">
-						<h5 class="card-title">Inception</h5>
-						<p class="text-muted small">Thriller • 2h 28m</p>
+						<h5 class="card-title">Oopiri</h5>
+						<p class="text-muted small">Drama • 2h 28m</p>
 						<a href="#" class="btn btn-primary w-100">Book Now</a>
 					</div>
 				</div>
@@ -159,11 +259,167 @@ footer {
 			<!-- MOVIE 4 -->
 			<div class="col-md-3 col-sm-6">
 				<div class="card movie-card shadow border-0">
-					<img src="https://via.placeholder.com/300x260?text=Movie+4"
+					<img src="https://i.pinimg.com/564x/e1/a1/30/e1a13093e696cd87e384e3682bbf3929.jpg"
 						class="card-img-top">
 					<div class="card-body">
-						<h5 class="card-title">Joker</h5>
+						<h5 class="card-title">Chhichhore</h5>
+						<p class="text-muted small">Comedy • 2h 2m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+			<h2 class="text-center fw-bold mb-4">Now Showing in Kannada</h2>
+			<!-- MOVIE 5 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Love_Mocktail_poster.jpg"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Love Mocktail</h5>
+						<p class="text-muted small">Drama • 3h 1m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 6 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXz1l1sBCPTGcZIHezPsslX-256xUaHJT6nwSzps-lIjr5spfyJuQRKSBMZFIYoHHSISVEaqkIk-bgybT_Sd5Xbp24TeUgNIdHbYFtG-Q&s=10"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Kantara</h5>
+						<p class="text-muted small">Comedy • 2h 49m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 7 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBac-4dlHEaK62vvEHMMcS_PboGclwBP3Bny_k530Z_s2xoSFXFM0r_EgoPXBO5DVLT8Mr&s=10"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">KGF</h5>
+						<p class="text-muted small">Action • 2h 28m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 8 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://m.media-amazon.com/images/M/MV5BOWY4MzlmNjItZGYzMS00ZDVhLWI2ZDMtNWEwZTBiMmU0YzQ4XkEyXkFqcGc@._V1_.jpg"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Charlee</h5>
 						<p class="text-muted small">Drama • 2h 2m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+			<h2 class="text-center fw-bold mb-4">Now Showing in English</h2>
+			<!-- MOVIE 9 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://m.media-amazon.com/images/S/pv-target-images/3de84cca07fc963b66a01a5465c2638066119711e89c707ce952555783dd4b4f.jpg"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Batman</h5>
+						<p class="text-muted small">Action • 3h 1m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 10 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://m.media-amazon.com/images/M/MV5BNzUyM2YyY2MtNzNlMS00MWU5LTgxNjAtNzZlNmI2NjU2NDZlXkEyXkFqcGc@._V1_.jpg"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Captain America The first Avenger</h5>
+						<p class="text-muted small">Action • 2h 49m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 11 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJjG0BIwZkhwTUR-6PwqFwuZkc6SNtHNHMQw&s"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">F1</h5>
+						<p class="text-muted small">Action • 2h 28m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 12 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/F9_film_poster.jpg/250px-F9_film_poster.jpg"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Fast and Furious</h5>
+						<p class="text-muted small">Action • 2h 2m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+			<!-- MOVIE 13 -->
+			<h2 class="text-center fw-bold mb-4">Now Showing in Animation</h2>
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://www.gbpostersmerch.com/cdn/shop/files/ryqo5105xsl.jpg?v=1743588288&width=1920"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">One Piece RED</h5>
+						<p class="text-muted small">Action • 3h 1m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 14 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3HcVG27eK--uy6usCydFQ3udgQUt8firi2A&s"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Cars</h5>
+						<p class="text-muted small">Action • 2h 49m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 7 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9oNZz7_bgcyK7zg1CQXR59bWALWR-OXFQqA&s"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Demon Slayer</h5>
+						<p class="text-muted small">Horror • 2h 28m</p>
+						<a href="#" class="btn btn-primary w-100">Book Now</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- MOVIE 8 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="card movie-card shadow border-0">
+					<img src="https://m.media-amazon.com/images/M/MV5BN2QzZTQ3MzktN2JiYS00MDEzLTgxMWQtZWFmMDI3NWFkZTY0XkEyXkFqcGc@._V1_.jpg"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Raya and The last Dragon</h5>
+						<p class="text-muted small">Action • 2h 2m</p>
 						<a href="#" class="btn btn-primary w-100">Book Now</a>
 					</div>
 				</div>

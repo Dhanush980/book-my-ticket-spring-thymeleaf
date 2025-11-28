@@ -10,35 +10,127 @@
 	rel="stylesheet">
 
 <style>
+/* Global */
 body {
-	background: #f4f6f9;
+    background: #095279;
+	background: linear-gradient(90deg, rgba(9, 82, 121, 1) 0%, rgba(0, 212, 255, 1) 64%);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    color: #e6e6e6;
 }
 
+/* Navbar Brand */
 .navbar-brand {
-	font-weight: bold;
-	font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #00eaff !important; 
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.8);
 }
 
+/* Register Box */
 .register-box {
-	max-width: 500px;
-	margin-top: 50px;
-	background: #fff;
-	padding: 35px;
-	border-radius: 12px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    max-width: 500px;
+    margin-top: 50px;
+    padding: 35px;
+    border-radius: 14px;
+
+    background: #0d0d0d;
+	background: linear-gradient(0deg, rgba(13, 13, 13, 1) 0%, rgba(45, 187, 253, 1) 100%);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 
+        0 0 18px rgba(0, 238, 255, 0.18),
+        0 0 25px rgba(255, 0, 200, 0.12);
+
+    border: 1px solid rgba(0, 255, 255, 0.12);
+
+    transition: 0.3s ease;
 }
 
-.error-text {
-	font-size: 0.85rem;
-	color: red;
+.register-box:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 25px rgba(0, 238, 255, 0.25),
+        0 0 30px rgba(255, 0, 200, 0.25);
 }
+
+/* Labels */
+.register-box label {
+    color: #a8f2ff;
+    font-weight: 500;
+}
+
+/* Inputs */
+.register-box input,
+.register-box select {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0 18px;
+    border-radius: 10px;
+    border: none;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+
+    outline: none;
+    font-size: 1rem;
+
+    box-shadow: 0 0 10px rgba(0, 238, 255, 0.05);
+    transition: 0.3s;
+}
+
+.register-box input:focus,
+.register-box select:focus {
+    border: 1px solid #00eaff;
+    background: rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 0 12px rgba(0, 238, 255, 0.5),
+        0 0 15px rgba(255, 0, 200, 0.4);
+}
+
+/* Buttons */
+.register-box button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #00eaff, #007bff);
+    border: none;
+
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.35);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-box button:hover {
+    background: linear-gradient(90deg, #ff4dff, #b300ff);
+    color: #fff;
+
+    box-shadow: 0 0 20px rgba(255, 0, 200, 0.55);
+}
+
+/* Error Text */
+.error-text {
+    font-size: 0.85rem;
+    color: #ff4dff;
+    text-shadow: 0 0 5px rgba(255, 0, 200, 0.5);
+}
+
+#nav{
+	background: #0d0d0d;
+	background: linear-gradient(0deg, rgba(13, 13, 13, 1) 0%, rgba(45, 187, 253, 1) 100%);
+    }
 </style>
 </head>
 
 <body>
 
 	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow-sm">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow-sm" id="nav">
 		<a class="navbar-brand" href="/">🎬 BookMyTicket</a>
 
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"

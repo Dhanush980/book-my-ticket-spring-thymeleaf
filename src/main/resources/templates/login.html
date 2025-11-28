@@ -10,30 +10,115 @@
 	rel="stylesheet">
 
 <style>
+/* Global */
 body {
-	background: #f4f6f9;
+    background: #095279;
+	background: linear-gradient(90deg, rgba(9, 82, 121, 1) 0%, rgba(0, 212, 255, 1) 64%);
+    color: #e4e4e4;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
 }
 
+/* Navbar */
 .navbar-brand {
-	font-weight: bold;
-	font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #00eaff !important; /* neon cyan */
+    text-shadow: 0 0 8px rgba(0, 238, 255, 0.8);
+    
 }
 
+/* Login Box */
 .login-box {
-	max-width: 420px;
-	margin-top: 80px;
-	background: #fff;
-	padding: 35px;
-	border-radius: 12px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    max-width: 420px;
+    margin-top: 80px;
+    padding: 35px;
+    border-radius: 14px;
+	
+	background: #0d0d0d;
+	background: linear-gradient(0deg, rgba(13, 13, 13, 1) 0%, rgba(45, 187, 253, 1) 100%);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 
+        0 0 18px rgba(0, 238, 255, 0.15),
+        0 0 8px rgba(255, 0, 200, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 0 25px rgba(0, 238, 255, 0.25),
+        0 0 12px rgba(255, 0, 200, 0.2);
+}
+
+/* Labels */
+.login-box label {
+    color: #a8f2ff;
+    font-weight: 500;
+}
+
+/* Inputs */
+.login-box input {
+    background: #0f0f0f;
+    border: 1px solid #222;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.login-box input:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 8px rgba(0, 238, 255, 0.5);
+    outline: none;
+}
+
+/* Button */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 18px;
+
+    background: linear-gradient(90deg, #00eaff, #007bff);
+    border: none;
+    border-radius: 8px;
+
+    color: #000;
+    font-size: 1.05rem;
+    font-weight: bold;
+
+    box-shadow: 0 0 12px rgba(0, 238, 255, 0.4);
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: linear-gradient(90deg, #ff4dff, #b300ff);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(255, 0, 200, 0.6);
+}
+
+/* Centering */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nav{
+	background: #0d0d0d;
+	background: linear-gradient(0deg, rgba(13, 13, 13, 1) 0%, rgba(45, 187, 253, 1) 100%);
+    
+}
+
 </style>
 </head>
 
 <body>
 
 	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow-sm">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow-sm" id="nav">
 		<a class="navbar-brand" href="/">🎬 BookMyTicket</a>
 
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
