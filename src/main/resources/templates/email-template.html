@@ -1,147 +1,149 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>OTP Verification</title>
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-	rel="stylesheet">
-
 <style>
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+	/* EMAIL-FRIENDLY RESET */
+	body, table, td, div, p {
+		margin: 0;
+		padding: 0;
+		font-family: 'Poppins', Arial, sans-serif;
+	}
 
-/* Background */
-body {
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	body {
+		background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f7 50%, #f0f4f8 100%);
+		padding: 20px;
+	}
 
-    background: linear-gradient(135deg, #0b0b0d, #1a1d24, #000);
-    color: #e8e8e8;
-}
+	/* CARD */
+	.email-card {
+		max-width: 480px;
+		margin: 20px auto;
+		background: #ffffff;
+		border-radius: 15px;
+		border: 1.5px solid rgba(100, 150, 255, 0.2);
+		padding: 40px;
+		box-shadow: 0 12px 40px rgba(100, 150, 255, 0.15);
+	}
 
-/* OTP Card */
-.otp-card {
-    background: rgba(20, 20, 20, 0.6);
-    padding: 40px 55px;
-    border-radius: 18px;
+	/* TITLE */
+	.title {
+		font-size: 22px;
+		font-weight: 700;
+		color: #1a2332;
+		text-align: center;
+		margin-bottom: 20px;
+	}
 
-    backdrop-filter: blur(15px);
+	/* OTP */
+	.otp-code {
+		font-size: 36px;
+		font-weight: 700;
+		background: linear-gradient(135deg, #6496ff 0%, #ff4081 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-align: center;
+		letter-spacing: 4px;
+		padding: 20px 0;
+		margin: 25px 0;
+		font-family: 'Courier New', monospace;
+	}
 
-    box-shadow: 
-        0 0 18px rgba(0, 255, 255, 0.2),
-        0 0 25px rgba(255, 0, 200, 0.1);
+	/* TEXT */
+	.text {
+		font-size: 15px;
+		color: #5a6b7d;
+		line-height: 1.6;
+		text-align: center;
+		margin-bottom: 15px;
+	}
 
-    border: 1px solid rgba(0, 255, 255, 0.15);
+	.text strong {
+		color: #1a2332;
+		font-weight: 600;
+	}
 
-    text-align: center;
-    transition: 0.3s;
-}
+	/* HIGHLIGHT BOX */
+	.highlight-box {
+		background: linear-gradient(135deg, rgba(100, 150, 255, 0.08) 0%, rgba(255, 64, 129, 0.04) 100%);
+		border-left: 4px solid #6496ff;
+		padding: 15px;
+		margin: 20px 0;
+		border-radius: 8px;
+	}
 
-.otp-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-        0 0 25px rgba(0, 255, 255, 0.3),
-        0 0 35px rgba(255, 0, 200, 0.25);
-}
+	.highlight-box .text {
+		margin-bottom: 0;
+		font-weight: 500;
+	}
 
-/* Heading */
-h1 {
-    font-size: 1.9rem;
-    margin-bottom: 18px;
-    font-weight: 700;
-    color: #00eaff;
-    text-shadow: 0 0 10px rgba(0, 238, 255, 0.7);
-}
+	/* FOOTER */
+	.footer {
+		margin-top: 30px;
+		padding-top: 20px;
+		border-top: 1px solid rgba(100, 150, 255, 0.15);
+		font-size: 12px;
+		color: #5a6b7d;
+		text-align: center;
+	}
 
-/* Highlight Text */
-.highlight {
-    color: #ff4dff;
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(255, 0, 200, 0.8);
-}
+	.footer-text {
+		margin: 5px 0;
+	}
 
-/* Input Box Styling */
-input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    border-radius: 10px;
-    border: none;
+	/* RESPONSIVE */
+	@media (max-width: 600px) {
+		.email-card {
+			padding: 25px 20px;
+			margin: 15px auto;
+		}
 
-    background: rgba(255, 255, 255, 0.08);
-    color: #fff;
+		.title {
+			font-size: 20px;
+			margin-bottom: 15px;
+		}
 
-    font-size: 1.1rem;
-    text-align: center;
+		.otp-code {
+			font-size: 32px;
+			padding: 15px 0;
+			letter-spacing: 3px;
+		}
 
-    outline: none;
-    transition: 0.3s;
-
-    box-shadow: 0 0 10px rgba(0, 238, 255, 0.05);
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow:
-        0 0 12px rgba(0, 238, 255, 0.5),
-        0 0 15px rgba(255, 0, 200, 0.4);
-    border: 1px solid #00eaff;
-}
-
-/* Submit Button */
-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-
-    background: linear-gradient(90deg, #00eaff, #0077ff);
-    border: none;
-    color: #000;
-
-    box-shadow: 0 0 15px rgba(0, 238, 255, 0.35);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: linear-gradient(90deg, #ff4dff, #b300ff);
-    color: #fff;
-    box-shadow: 0 0 18px rgba(255, 0, 200, 0.6);
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-    .otp-card {
-        padding: 25px 20px;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-}
-
+		.text {
+			font-size: 14px;
+		}
+	}
 </style>
 </head>
+
 <body>
 
-	<div class="otp-card">
-		<h1>
-			Hello <span class="highlight" th:text="${name}"></span>, <br>
-			Your OTP is <span class="highlight" th:text="${otp}"></span>
-		</h1>
+	<div class="email-card">
+
+		<div class="title">🎫 Email Verification - BookMyTicket</div>
+
+		<p class="text">
+			Hello <strong th:text="${name}"></strong>, <br><br>
+			Your One-Time Password for verification is:
+		</p>
+
+		<div class="otp-code" th:text="${otp}"></div>
+
+		<div class="highlight-box">
+			<p class="text">
+				⏱️ This OTP is valid for the next <strong>2 minutes</strong>.<br>
+				🔒 Please do not share it with anyone.
+			</p>
+		</div>
+
+		<div class="footer">
+			<p class="footer-text">© 2024 BookMyTicket — Secure Verification System</p>
+			<p class="footer-text">Thank you for choosing BookMyTicket for your movie booking needs!</p>
+		</div>
+
 	</div>
 
 </body>
